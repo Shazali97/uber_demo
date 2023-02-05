@@ -15,19 +15,19 @@ const RideOptionsCard = () => {
   const data = [
     {
       id : "x",
-      title: "UberX",
+      title: "Uber X",
       multiplier: 1,
       image: "https://links.papareact.com/3pn"
     },
     {
       id : "xl",
-      title: "UberXL",
+      title: "Uber XL",
       multiplier: 1.2,
       image: "https://links.papareact.com/5w8"
     },
     {
       id : "lux",
-      title: "UberLUX",
+      title: "Uber LUX",
       multiplier: 1.75,
       image: "https://links.papareact.com/7pf"
     },
@@ -44,7 +44,7 @@ const RideOptionsCard = () => {
         >
           <Icon name="chevron-left" type="fontawesome"/>
         </TouchableOpacity>
-        <Text style={tw`text-center py-5 text-xl`}>Select a Ride - {travelTimeInformation?.distance.text}</Text>
+        <Text style={tw`text-center py-5 text-xl`}>Select a Ride - {travelTimeInformation?.distance?.text}</Text>
       </View>
 
       <FlatList
@@ -64,20 +64,20 @@ const RideOptionsCard = () => {
             />
             <View style={tw`-ml-6`}>
               <Text style={tw`text-xl font-semibold`}>{title}</Text>
-              <Text>{travelTimeInformation?.duration.text} Travel Time</Text>
+              <Text>{travelTimeInformation?.duration?.text}</Text>
             </View>
             <Text style={tw`text-xl`}>
               {new Intl.NumberFormat('en-us', {
                 style: 'currency',
                 currency: 'USD'
               }).format(
-                (travelTimeInformation?.duration.value * SURGE_RATE * multiplier) / 100
+                (travelTimeInformation?.duration?.value * SURGE_RATE * multiplier) / 100
               )}
             </Text>
           </TouchableOpacity>
         )}
       />
-      <View>
+      <View style={tw`mt-auto border-t border-gray-200`}>
         <TouchableOpacity 
           style={tw`bg-black py-3 m-3 ${!selected && "bg-gray-300"}`}
           disabled={!selected}
